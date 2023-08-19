@@ -210,7 +210,6 @@ Kill.MouseButton1Click:Connect(function()
 		until game:GetService("Players"):WaitForChild(focused).Character.Humanoid.Health < 1
 		
 		
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldposition
 		iskilling = true
 		
 	else
