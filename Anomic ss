@@ -1,0 +1,258 @@
+local focused = nil
+local iskilling = false
+function notify(title, message)game:GetService("Players").LocalPlayer.PlayerGui.Notify.TimePosition = 0 game:GetService("Players").LocalPlayer.PlayerGui.Notify.Playing = true if not message then require(game:GetService("ReplicatedStorage"):WaitForChild("Client").NotificationHandler):AddToStream(game.Players.LocalPlayer,title) else require(game:GetService("ReplicatedStorage"):WaitForChild("Client").NotificationHandler):AddToStream(game.Players.LocalPlayer,title..": "..message)end end
+
+notify("Anomic SS", "hi")
+
+
+local KillPlayersGUI = Instance.new("ScreenGui")
+local Layout = Instance.new("Frame")
+local Player = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local ScrollingFrame = Instance.new("ScrollingFrame")
+local UIGridLayout = Instance.new("UIGridLayout")
+local Kill = Instance.new("TextButton")
+local Teleport = Instance.new("TextButton")
+local Top = Instance.new("Frame")
+local X = Instance.new("TextButton")
+local Label = Instance.new("TextLabel")
+
+--Properties:
+
+KillPlayersGUI.Name = "KillPlayersGUI"
+KillPlayersGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+KillPlayersGUI.ResetOnSpawn = false
+KillPlayersGUI.Parent = game:GetService("CoreGui")
+
+Layout.Name = "Layout"
+Layout.Parent = KillPlayersGUI
+Layout.BackgroundColor3 = Color3.fromRGB(84, 84, 84)
+Layout.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Layout.BorderSizePixel = 0
+Layout.Position = UDim2.new(0.573333323, 0, 0.28185907, 0)
+Layout.Size = UDim2.new(0, 370, 0, 378)
+
+Player.Name = "Player"
+Player.Parent = Layout
+Player.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
+Player.BorderColor3 = Color3.fromRGB(31, 31, 31)
+Player.BorderSizePixel = 2
+Player.Position = UDim2.new(0.083783783, 0, 0.108465612, 0)
+Player.Size = UDim2.new(0, 308, 0, 31)
+
+TextButton.Parent = Player
+TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BackgroundTransparency = 1.000
+TextButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BorderSizePixel = 0
+TextButton.Size = UDim2.new(0, 308, 0, 31)
+TextButton.Font = Enum.Font.SciFi
+TextButton.Text = "Select Player"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+ScrollingFrame.Parent = Layout
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
+ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame.BorderSizePixel = 0
+ScrollingFrame.Position = UDim2.new(0.483783782, 0, 0.232804239, 0)
+ScrollingFrame.Size = UDim2.new(0, 160, 0, 254)
+ScrollingFrame.Visible = false
+
+UIGridLayout.Parent = ScrollingFrame
+UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIGridLayout.CellSize = UDim2.new(0, 100, 0, 30)
+UIGridLayout.FillDirectionMaxCells = 11
+
+Kill.Name = "Kill"
+Kill.Parent = Layout
+Kill.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
+Kill.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Kill.BorderSizePixel = 2
+Kill.Position = UDim2.new(0.083783783, 0, 0.261904776, 0)
+Kill.Size = UDim2.new(0, 137, 0, 27)
+Kill.Font = Enum.Font.SciFi
+Kill.Text = "Kill"
+Kill.TextColor3 = Color3.fromRGB(0, 0, 0)
+Kill.TextScaled = true
+Kill.TextSize = 14.000
+Kill.TextWrapped = true
+
+Teleport.Name = "Teleport"
+Teleport.Parent = Layout
+Teleport.BackgroundColor3 = Color3.fromRGB(57, 57, 57)
+Teleport.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Teleport.BorderSizePixel = 2
+Teleport.Position = UDim2.new(0.083783783, 0, 0.378306866, 0)
+Teleport.Size = UDim2.new(0, 137, 0, 27)
+Teleport.Font = Enum.Font.SciFi
+Teleport.Text = "Teleport"
+Teleport.TextColor3 = Color3.fromRGB(0, 0, 0)
+Teleport.TextScaled = true
+Teleport.TextSize = 14.000
+Teleport.TextWrapped = true
+
+Top.Name = "Top"
+Top.Parent = KillPlayersGUI
+Top.BackgroundColor3 = Color3.fromRGB(84, 84, 84)
+Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Top.BorderSizePixel = 0
+Top.Position = UDim2.new(0.573333323, 0, 0.242878556, 0)
+Top.Size = UDim2.new(0, 370, 0, 37)
+
+X.Name = "X"
+X.Parent = Top
+X.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+X.BackgroundTransparency = 1.000
+X.BorderColor3 = Color3.fromRGB(0, 0, 0)
+X.BorderSizePixel = 0
+X.Position = UDim2.new(0.827027023, 0, 0, 0)
+X.Size = UDim2.new(0, 47, 0, 37)
+X.Font = Enum.Font.SciFi
+X.Text = "X"
+X.TextColor3 = Color3.fromRGB(0, 0, 0)
+X.TextScaled = true
+X.TextSize = 14.000
+X.TextWrapped = true
+
+Label.Name = "Label"
+Label.Parent = Top
+Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Label.BackgroundTransparency = 1.000
+Label.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Label.BorderSizePixel = 0
+Label.Position = UDim2.new(0.0405405387, 0, 0, 0)
+Label.Size = UDim2.new(0, 185, 0, 37)
+Label.Font = Enum.Font.SourceSans
+Label.Text = "Anomic SS"
+Label.TextColor3 = Color3.fromRGB(0, 0, 0)
+Label.TextScaled = true
+Label.TextSize = 14.000
+Label.TextWrapped = true
+
+
+X.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer.PlayerGui.KillPlayersGUI:Destroy()
+end)
+
+Teleport.MouseButton1Click:Connect(function(plr)
+	if focused ~= nil then
+		local target = game.Workspace:FindFirstChild(focused)
+		if target and target:FindFirstChild("HumanoidRootPart") then
+			local targetPosition = target.HumanoidRootPart.Position
+			local newCFrame = CFrame.new(targetPosition)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = newCFrame
+		end
+	end
+end)
+
+TextButton.MouseButton1Click:Connect(function()
+	if ScrollingFrame.Visible == true then
+		ScrollingFrame.Visible = false
+	else
+		ScrollingFrame.Visible = true
+	end
+end)
+
+local playerButtons = {}
+
+
+while true do
+	wait(1)
+	for i,players in pairs(game.Players:GetChildren()) do
+		if players.Name ~= game.Players.LocalPlayer.Name and not playerButtons[players.Name] then
+			local Textbutton = Instance.new("TextButton")
+			Textbutton.Parent = ScrollingFrame
+			Textbutton.BackgroundColor3 = Color3.fromRGB(80,80,80)
+			Textbutton.TextScaled = true
+			Textbutton.Font = Enum.Font.SciFi
+			Textbutton.Text = players.Name
+			Textbutton.Name = players.Name
+
+			Textbutton.MouseButton1Click:Connect(function()
+				focused = players.Name
+				TextButton.Text = players.Name
+				print(focused)
+			end)
+
+			playerButtons[players.Name] = Textbutton
+		end
+	end
+end
+
+Kill.MouseButton1Click:Connect(function()
+	if iskilling == false then
+		local player = game.Workspace:FindFirstChild(focused)
+		local oldposition = game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame
+		local playerpositon = player:FindFirstChild("HumanoidRootPart").CFrame
+		local newCFrame = CFrame.new(playerpositon)
+		local head = player:FindFirstChild("Head").Position
+		local new = CFrame.new(0,5,0)
+		local gun = game.Players.LocalPlayer.Character:FindFirstChild("Handgun") or game.Players.LocalPlayer.Character:FindFirstChild("Riot PDW") or game.Players.LocalPlayer.Character:FindFirstChild("Revolver")
+
+
+		local args = {
+			[1] = Vector3.new(head),
+			[2] = game:GetService("Players"):WaitForChild(focused).Character.Head,
+			[3] = game:GetService("Players").LocalPlayer.Character:FindFirstChild(gun).Shot,
+			[4] = player.Head,
+			[5] = Enum.NormalId.Front
+		}
+
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = newCFrame + new
+		
+		repeat
+			wait(0.2)
+			game:GetService("ReplicatedStorage"):WaitForChild("_CS.Events"):WaitForChild("RayDrawer"):FireServer(unpack(args))
+		until game:GetService("Players"):WaitForChild(focused).Character.Humanoid.Health < 1
+		
+		
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = oldposition
+		iskilling = true
+		
+	else
+		notify("Anomic SS", "Please wait until the killing process is over, otherwise the script would break.")
+	end
+
+	
+	
+end)
+
+
+
+
+game.Players.PlayerRemoving:Connect(function(player)
+	print(player.Name)
+	local button = playerButtons[player.Name]
+	if button then
+		button:Destroy()
+		playerButtons[player.Name] = nil -- Remove the button from thLayoute table
+		local pl = game.Players.LocalPlayer.PlayerGui.KillPlayersGUI..ScrollingFrame:FindFirstChild(player.Name)
+		pl:Destroy()
+	end
+end)
+
+
+
+
+
+game.Players.PlayerAdded:Connect(function(plr)
+	local Textbutton = Instance.new("TextButton")
+	Textbutton.Parent = ScrollingFrame
+	Textbutton.BackgroundColor3 = Color3.fromRGB(80,80,80)
+	Textbutton.TextScaled = true
+	Textbutton.Font = Enum.Font.SciFi
+	Textbutton.Text = plr.Name
+	Textbutton.Name = plr.Name
+
+	Textbutton.MouseButton1Click:Connect(function()
+		focused = plr.Name
+		TextButton.Text = plr.Name
+		print(focused)
+	end)
+
+	playerButtons[plr.Name] = Textbutton
+end)
